@@ -6,6 +6,7 @@ import Btn from './components/Btn.vue';
   <body>
       <h1>계산기</h1>
       <Btn :class="`number`">1</Btn>
+      <Btn :button="{class:`number`, style:{width:`10rem`}}">1</Btn>
       <Btn :class="`operator`">+</Btn>
     </body>
 </template>
