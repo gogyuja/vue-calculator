@@ -1,0 +1,25 @@
+button {
+  width: 5rem;
+}
+
+/* 숫자 버튼 스타일 */
+.number {
+  background-color: lightblue;
+  color: black;
+  border: 1px solid #ccc;
+  padding: 15px;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* 연산자 버튼 스타일 */
+.operator {
+  background-color: orange;
+  color: white;
+  border: 1px solid #ccc;
+  padding: 15px;
+  font-size: 18px;
+  border-radius: 4px;
+  cursor: pointer;
+}
