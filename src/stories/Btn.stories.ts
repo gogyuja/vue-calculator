@@ -3,11 +3,25 @@ import Btn from '../components/Btn.vue'
 import type { Meta, StoryFn } from '@storybook/vue3'
 
 //스토리북 메타데이터 설정
-export default {
+// export default {
+//   title: 'Components/Btn',
+//   component: Btn,
+//   tags: ['autodocs'],
+// } as Meta<typeof Btn>
+
+const meta = {
   title: 'Components/Btn',
   component: Btn,
   tags: ['autodocs'],
-} as Meta<typeof Btn>
+  argTypes: {
+    class: { control: 'select', options: ['number', 'operator'] },
+    style: { control: 'select', options: ['width:10rem; height:5rem', 'width:5rem; height:5rem;'] },
+  },
+  args: {
+  },
+} satisfies Meta<typeof Btn>
+
+export default meta
 
 //템플릿 생성
 const Template: StoryFn<typeof Btn> = (args) => ({
@@ -15,38 +29,33 @@ const Template: StoryFn<typeof Btn> = (args) => ({
   setup() {
     return { args }
   },
-  template: `<Btn v-bind="args">
-        <template v-if="args.default">{{ args.default }}</template>
-  </Btn>`,
+  template: `<Btn v-bind="args" />`, // args 활용
 })
 
 //기본스토리
 export const Default = Template.bind({})
 Default.args = {
-  button: {
-    class: 'number',
-    style: { height: '5rem', width: '10rem' },
-  },
-  default: 'Default Button Text', // Slot 기본 내용
+
 }
 
 export const Number = {
   args: {
+    class: 'number',
     button: {
+      label: '1',
       class: 'number',
       style: {
-        height: '5rem',
         width: '10rem',
       },
     },
-    default: '1',
   },
 }
 
 export const Operater = {
   args: {
-    class: 'operator',
-    height: '10rem',
+    button: {
+      class: 'operator',
+      label:'+'
+    },
   },
-  template: '<Btn/>',
 }

@@ -5,10 +5,9 @@ import Btn from './components/Btn.vue';
 <template>
   <body>
       <h1>계산기</h1>
-      <Btn :class="`number`">1</Btn>
-      <Btn :button="{class:`number`, style:{width:`10rem`}}">1</Btn>
-      <Btn :class="`operator`">+</Btn>
-    </body>
+      <Btn :button="{label:`1`, class:`number`, style:{width:`10rem`}}"></Btn>
+      <Btn :button="{label:`+`, class:`operator`, style:{width:`10rem`}}"></Btn>
+</body>
 </template>
 
 <style scoped>

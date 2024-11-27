@@ -13,6 +13,20 @@ button {
   cursor: pointer;
 }
 
+/* 숫자 버튼 hover 시 */
+.number:hover {
+  background-color: #b0d8f3; /* hover 배경색 */
+  color: #333; /* hover 텍스트 색상 */
+  transform: scale(1.05); /* 약간 확대 */
+}
+
+/* 숫자 버튼 active(클릭) 시 */
+.number:active {
+  background-color: #8bbdd9; /* 클릭 배경색 */
+  color: white; /* 클릭 텍스트 색상 */
+  transform: scale(0.95); /* 살짝 축소 */
+}
+
 /* 연산자 버튼 스타일 */
 .operator {
   background-color: orange;
@@ -22,4 +36,17 @@ button {
   font-size: 18px;
   border-radius: 4px;
   cursor: pointer;
+}
+
+/* 연산자 버튼 hover 시 */
+.operator:hover {
+  background-color: #ffb84d; /* hover 배경색 */
+  transform: scale(1.05); /* 약간 확대 */
+}
+
+/* 연산자 버튼 active(클릭) 시 */
+.operator:active {
+  background-color: #e6951a; /* 클릭 배경색 */
+  color: black; /* 클릭 텍스트 색상 */
+  transform: scale(0.95); /* 살짝 축소 */
 }

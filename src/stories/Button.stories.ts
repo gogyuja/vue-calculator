@@ -32,6 +32,7 @@ export const Primary: Story = {
     primary: true,
     label: 'Button',
   },
+  decorators:[()=>({template: '<div style="margin: 3em;"><story/></div>' })]
 };
 
 export const Secondary: Story = {
