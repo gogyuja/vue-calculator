@@ -21,7 +21,7 @@ const props = withDefaults(
   {
     button:{
       class:'number',
-      style: { width: '5rem', height: '5rem' },
+      style: { width: '100%', height: '100%' },
       label: '버튼', // 기본 버튼 텍스트
     }
   }
@@ -29,8 +29,8 @@ const props = withDefaults(
 
 //style 병합 : 부모에서 전달되지 않은 경우 기본 값 사용
 const computedStyle=computed(()=>({
-  width: props.button.style?.width || '5rem',
-  height: props.button.style?.height || '5rem',
+  width: props.button.style?.width || '100%',
+  height: props.button.style?.height || '100%',
 
   ...(props.button.style || {}), // 전달된 스타일 병합
 }))
