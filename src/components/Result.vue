@@ -1,0 +1,38 @@
+<template>
+<div class="resultcontainer">
+  <ResultStack/>
+  <Input :label="props.label"/>
+</div>
+</template>
+
+<script setup lang='ts'>
+import Input from '../components/Input.vue'
+import ResultStack from '../components/ResultStack.vue'
+import {watch} from 'vue'
+
+const props = defineProps<{ label: string }>();
+console.log(props.label);
+watch(
+  ()=>props.label,
+  (newVal)=>{
+  //   console.log(`Result 컴포넌트 Update : ${newVal}`)
+  }
+)
+</script>
+
+<style scoped>
+.resultcontainer{
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-width:1px;
+  border-radius: 5px;
+  border-color: rgb(44, 46, 46);
+  padding:5px;
+}
+
+*{
+  box-sizing: border-box;
+  padding:5px;
+}
+</style>

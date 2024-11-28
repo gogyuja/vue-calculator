@@ -1,5 +1,5 @@
 <template>
-  <button :class="props.button.class" :style="computedStyle" >
+  <button :class="props.button.class" :style="computedStyle" @click="$emit('sendLabel',props.button.label )" >
     {{ props.button.label }}
   </button>
 </template>
@@ -22,7 +22,7 @@ const props = withDefaults(
     button:{
       class:'number',
       style: { width: '100%', height: '100%' },
-      label: '버튼', // 기본 버튼 텍스트
+      label: '1', // 기본 버튼 텍스트
     }
   }
 );
@@ -34,6 +34,8 @@ const computedStyle=computed(()=>({
 
   ...(props.button.style || {}), // 전달된 스타일 병합
 }))
+
+
 </script>
 
 <style scoped>

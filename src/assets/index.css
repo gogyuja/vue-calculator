@@ -4,36 +4,7 @@ html {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-#app {
-  width: 720px;
-  height: 100%;
-  background-color: #e0e0e0; /* Body의 고정 색상 */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* 그림자 효과 */
   box-sizing: border-box;
-  padding: 5px;
-}
-
-.container {
-  display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(5, minmax(100px, auto));
-}
-
-.item:nth-child(1) {
-  grid-column-start: 1;
-  grid-column-end: 4;
-}
-
-.item:last-child {
-  grid-column-start: 3;
-  grid-column-end: 5;
-}
-
-@media screen and (max-width: 720px) {
-  #app {
-    width: 100%;
-  }
+  margin: 0px;
+  padding: 0px;
 }

@@ -1,6 +1,6 @@
-import type { toValue } from 'vue'
+import { fn } from '@storybook/test'
 import Btn from '../components/Btn.vue'
-import type { Meta, StoryFn } from '@storybook/vue3'
+import type { Meta, StoryFn, Preview } from '@storybook/vue3'
 
 //스토리북 메타데이터 설정
 // export default {
@@ -18,7 +18,9 @@ const meta = {
     style: { control: 'select', options: ['width:10rem; height:5rem', 'width:5rem; height:5rem;'] },
   },
   args: {
+    onClick: fn(),
   },
+  
 } satisfies Meta<typeof Btn>
 
 export default meta
@@ -35,7 +37,11 @@ const Template: StoryFn<typeof Btn> = (args) => ({
 //기본스토리
 export const Default = Template.bind({})
 Default.args = {
-
+  button: {
+    class: 'number',
+    label: '테스트버튼',
+    style: { width: '200px', height: '100px' },
+  },
 }
 
 export const Number = {
@@ -55,7 +61,7 @@ export const Operater = {
   args: {
     button: {
       class: 'operator',
-      label:'+'
+      label: '+',
     },
   },
 }
