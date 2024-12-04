@@ -1,16 +1,17 @@
 <template>
 <div class="resultcontainer">
   <ResultStack/>
-  <Input :label="props.label"/>
+  <Input :label="props.label" />
 </div>
 </template>
 
 <script setup lang='ts'>
 import Input from '../components/Input.vue'
 import ResultStack from '../components/ResultStack.vue'
-import {watch} from 'vue'
+import {watch,ref} from 'vue'
 
 const props = defineProps<{ label: string }>();
+
 
 // watch(
 //   ()=>props.label,

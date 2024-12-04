@@ -107,7 +107,7 @@ watch(
 
    // curVal.value=newVal;
 
-  }
+  },{flush:'post',deep:true}
 )
 
 </script>
