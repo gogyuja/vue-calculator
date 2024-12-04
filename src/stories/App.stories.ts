@@ -13,12 +13,10 @@ const meta = {
   title: 'Components/App',
   component: App,
   tags: ['autodocs'],
-  argTypes: {
-  },
+  argTypes: {},
   args: {
     onClick: fn(),
   },
-
 }
 
 export default meta
@@ -34,6 +32,4 @@ const Template = (args) => ({
 
 //기본스토리
 export const Default = Template.bind({})
-Default.args = {
-  
-}
+Default.args = {}

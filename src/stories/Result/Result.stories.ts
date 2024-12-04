@@ -1,5 +1,5 @@
 import { fn } from '@storybook/test'
-import Result from '../components/Result.vue'
+import Result from '../../components/Result.vue'
 import type { Meta, StoryFn, Preview } from '@storybook/vue3'
 
 //스토리북 메타데이터 설정
@@ -10,13 +10,12 @@ import type { Meta, StoryFn, Preview } from '@storybook/vue3'
 // } as Meta<typeof Btn>
 
 const meta = {
-  title: 'Components/Result',
+  title: 'Result/Result',
   component: Result,
   tags: ['autodocs'],
   argTypes: {
   },
   args: {
-    onClick: fn(),
   },
 
 }

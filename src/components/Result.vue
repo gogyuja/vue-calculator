@@ -11,13 +11,13 @@ import ResultStack from '../components/ResultStack.vue'
 import {watch} from 'vue'
 
 const props = defineProps<{ label: string }>();
-console.log(props.label);
-watch(
-  ()=>props.label,
-  (newVal)=>{
-  //   console.log(`Result 컴포넌트 Update : ${newVal}`)
-  }
-)
+
+// watch(
+//   ()=>props.label,
+//   (newVal)=>{
+//      console.log(`Result 컴포넌트 Update : ${newVal}`)
+//   }
+// )
 </script>
 
 <style scoped>

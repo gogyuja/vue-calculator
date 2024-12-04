@@ -19,11 +19,6 @@ body {
   grid-template-rows: repeat(5, minmax(100px, auto));
 }
 
-.item:nth-child(1) {
-  grid-column-start: 1;
-  grid-column-end: 4;
-}
-
 .item:last-child {
   grid-column-start: 3;
   grid-column-end: 5;

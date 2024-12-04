@@ -22,6 +22,8 @@ const triggerCalculate = (label: string) => {
     </div>
     <div class="container">
         <Btn :button="{label:`C`, class:`item operator`}" @send-label="triggerCalculate"></Btn>
+        <Btn :button="{label:`Empty`, class:`item operator`}" @send-label="triggerCalculate"></Btn>
+        <Btn :button="{label:`BackSpace`, class:`item operator`}" @send-label="triggerCalculate"></Btn>
         <Btn :button="{label:`/`, class:`item operator`}" @send-label="triggerCalculate"></Btn>
         <Btn :button="{label:`1`, class:`item number`}" @send-label="triggerCalculate"></Btn>
         <Btn :button="{label:`2`, class:`item number`}" @send-label="triggerCalculate"></Btn>
