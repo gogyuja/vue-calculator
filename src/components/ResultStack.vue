@@ -1,9 +1,9 @@
 <template>
-<div class="resultstack">{{ props.resultVal }}</div>
+<div class="resultstack">{{ props.resultVal }}{{ props.opeartor }}</div>
 </template>
 
 <script setup lang='ts'>
-const props=defineProps<{resultVal:string}>();
+const props=defineProps<{resultVal:string, opeartor:string}>();
 </script>
 
 <style scoped>

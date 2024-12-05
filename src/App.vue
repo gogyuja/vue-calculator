@@ -3,7 +3,6 @@ import Btn from './components/Btn.vue';
 import Result from './components/Result.vue'
 import {ref} from 'vue';
 
-
 //계산결과값
 const resultVal=ref('');
 //입력창에 표시될 현재 값
@@ -29,7 +28,7 @@ const triggerCalculate = (newVal: string) => {
           case "/":
             //이전값을 저장하고 연산자 저장
             operator.value=newVal;
-            resultVal.value=(curVal.value).concat(operator.value);
+            resultVal.value=(curVal.value);
             curVal.value='';
             //
             break;
@@ -44,6 +43,21 @@ const triggerCalculate = (newVal: string) => {
             break;
           case "BackSpace":
             curVal.value=curVal.value.slice(0,-1);
+            break;
+          case "=":
+              switch(operator.value){
+                case "+":
+                  curVal.value=String(Number(resultVal.value)+Number(curVal.value))
+                break;
+                case "-":
+                  curVal.value=String(Number(resultVal.value)+Number(curVal.value))
+                break;
+                case "*":
+                  curVal.value=String(Number(resultVal.value)*Number(curVal.value))
+                break;
+                case "/":
+                  curVal.value=String(Number(resultVal.value)/Number(curVal.value))
+              }
             break;
           default:
             console.log("정상적인 입력을 해주세요.");
@@ -62,7 +76,7 @@ const triggerCalculate = (newVal: string) => {
       <h1>계산기</h1>
     </div>
     <div class="result">
-      <Result :curVal="curVal" :resultVal="resultVal"/>
+      <Result :curVal="curVal" :resultVal="resultVal" :operator="operator"/>
     </div>
     <div class="container">
         <Btn :button="{label:`C`, class:`item operator`}" @send-label="triggerCalculate"></Btn>

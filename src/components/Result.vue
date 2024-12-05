@@ -1,6 +1,6 @@
 <template>
 <div class="resultcontainer">
-  <ResultStack :resultVal="props.resultVal"/>
+  <ResultStack :resultVal="props.resultVal" :opeartor="props.operator"/>
   <Input :curVal="props.curVal" />
 </div>
 </template>
@@ -10,15 +10,7 @@ import Input from '../components/Input.vue'
 import ResultStack from '../components/ResultStack.vue'
 import {watch,ref} from 'vue'
 
-const props = defineProps<{ curVal: string , resultVal:string}>();
-
-
-// watch(
-//   ()=>props.label,
-//   (newVal)=>{
-//      console.log(`Result 컴포넌트 Update : ${newVal}`)
-//   }
-// )
+const props = defineProps<{ curVal: string, resultVal:string, operator:string}>();
 </script>
 
 <style scoped>
