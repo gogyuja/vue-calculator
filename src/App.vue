@@ -3,11 +3,55 @@ import Btn from './components/Btn.vue';
 import Result from './components/Result.vue'
 import {ref} from 'vue';
 
-let clickedLabel=ref('');
 
-const triggerCalculate = (label: string) => {
+//계산결과값
+const resultVal=ref('');
+//입력창에 표시될 현재 값
+const curVal=ref('');
+//계산식 변수
+const operator=ref('');
+
+const triggerCalculate = (newVal: string) => {
   // 함수 내용을 여기에 추가하세요
-  clickedLabel.value=label;
+
+  if(!isNaN(Number(newVal))){
+      curVal.value+=newVal;
+    }else{
+      switch(newVal){
+        case ".":
+          if(!curVal.value.includes(".")){
+            curVal.value+=newVal;
+          }
+          break;
+          case "+":
+          case "-":
+          case "*":
+          case "/":
+            //이전값을 저장하고 연산자 저장
+            operator.value=newVal;
+            resultVal.value=(curVal.value).concat(operator.value);
+            curVal.value='';
+            //
+            break;
+          case "c":
+          case "C":
+            curVal.value='';
+            resultVal.value='';
+            operator.value='';
+            break;
+          case "Empty":
+            curVal.value='';
+            break;
+          case "BackSpace":
+            curVal.value=curVal.value.slice(0,-1);
+            break;
+          default:
+            console.log("정상적인 입력을 해주세요.");
+            break;
+
+        }
+    }
+
 };
 
 </script>
@@ -18,7 +62,7 @@ const triggerCalculate = (label: string) => {
       <h1>계산기</h1>
     </div>
     <div class="result">
-      <Result :label="clickedLabel"/>
+      <Result :curVal="curVal" :resultVal="resultVal"/>
     </div>
     <div class="container">
         <Btn :button="{label:`C`, class:`item operator`}" @send-label="triggerCalculate"></Btn>

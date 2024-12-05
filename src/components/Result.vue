@@ -1,7 +1,7 @@
 <template>
 <div class="resultcontainer">
-  <ResultStack/>
-  <Input :label="props.label" />
+  <ResultStack :resultVal="props.resultVal"/>
+  <Input :curVal="props.curVal" />
 </div>
 </template>
 
@@ -10,7 +10,7 @@ import Input from '../components/Input.vue'
 import ResultStack from '../components/ResultStack.vue'
 import {watch,ref} from 'vue'
 
-const props = defineProps<{ label: string }>();
+const props = defineProps<{ curVal: string , resultVal:string}>();
 
 
 // watch(
