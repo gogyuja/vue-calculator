@@ -27,10 +27,18 @@ const triggerCalculate = (newVal: string) => {
           case "*":
           case "/":
             //이전값을 저장하고 연산자 저장
-            operator.value=newVal;
-            resultVal.value=(curVal.value);
-            curVal.value='';
-            //
+            if(operator.value==''){
+              operator.value=newVal;
+              resultVal.value=(curVal.value);
+              curVal.value='';
+            }else if(curVal.value==''){
+              operator.value=newVal;
+            }
+            else{
+              resultVal.value=calculate(resultVal.value,operator.value,curVal.value)
+              operator.value=newVal;
+              curVal.value='';
+            }
             break;
           case "c":
           case "C":
@@ -45,19 +53,22 @@ const triggerCalculate = (newVal: string) => {
             curVal.value=curVal.value.slice(0,-1);
             break;
           case "=":
-              switch(operator.value){
-                case "+":
-                  curVal.value=String(Number(resultVal.value)+Number(curVal.value))
-                break;
-                case "-":
-                  curVal.value=String(Number(resultVal.value)+Number(curVal.value))
-                break;
-                case "*":
-                  curVal.value=String(Number(resultVal.value)*Number(curVal.value))
-                break;
-                case "/":
-                  curVal.value=String(Number(resultVal.value)/Number(curVal.value))
-              }
+          curVal.value=calculate(resultVal.value,operator.value,curVal.value)
+              // switch(operator.value){
+              //   case "+":
+              //     curVal.value=String(Number(resultVal.value)+Number(curVal.value))
+              //   break;
+              //   case "-":
+              //     curVal.value=String(Number(resultVal.value)+Number(curVal.value))
+              //   break;
+              //   case "*":
+              //     curVal.value=String(Number(resultVal.value)*Number(curVal.value))
+              //   break;
+              //   case "/":
+              //     curVal.value=String(Number(resultVal.value)/Number(curVal.value))
+              // }
+              resultVal.value='';
+              operator.value='';
             break;
           default:
             console.log("정상적인 입력을 해주세요.");
@@ -67,6 +78,28 @@ const triggerCalculate = (newVal: string) => {
     }
 
 };
+
+const calculate=(a:string, b:string, c:string):string=>{
+  let value:string;
+  switch(b){
+  case "+":
+    value=String(Number(a)+Number(c))
+  break;
+  case "-":
+    value=String(Number(a)+Number(c))
+  break;
+  case "*":
+   value=String(Number(a)*Number(c))
+  break;
+  case "/":
+    value=String(Number(a)/Number(c))
+    break;
+    default:
+      value="Errorr"
+      break;
+  }
+  return value;
+}
 
 </script>
 
