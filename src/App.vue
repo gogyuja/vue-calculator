@@ -86,7 +86,7 @@ const calculate=(a:string, b:string, c:string):string=>{
     value=String(Number(a)+Number(c))
   break;
   case "-":
-    value=String(Number(a)+Number(c))
+    value=String(Number(a)-Number(c))
   break;
   case "*":
    value=String(Number(a)*Number(c))
