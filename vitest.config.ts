@@ -11,7 +11,9 @@ export default mergeConfig(
       root: fileURLToPath(new URL('./', import.meta.url)),
       coverage: {
         enabled: true,
-        reporter: [ 'html'],
+        //reoprter : ['html'] 을 넣었기때문이 없다면 coverage 가 터미널에서 보인다. html을 넣었기 때문에 vitest-ui와 함께 보인다.
+        reporter: ['text', 'html'],
+        include: ['src/function/**'],
       },
     },
   }),
