@@ -1,29 +1,27 @@
 // src/utils/calculator.ts
 import { Decimal } from 'decimal.js'
 import { calculatorErrorenum } from '@/Enums/errorenum'
-
-// 연산자 타입 정의
-type Operator = '+' | '-' | '*' | '/' | '**' | '=' | ''
+import { KEYENUM } from '@/Enums/keyenum'
 
 export const handleCalculatorInpt = (
   newVal: string,
   current: { value: string },
   result: { value: string },
-  operator: { value: Operator },
+  operator: { value: KEYENUM },
 ) => {
   if (!isNaN(Number(newVal))) {
     current.value += newVal
   } else {
     switch (newVal) {
-      case '.':
+      case KEYENUM.DOT:
         if (!current.value.includes('.')) {
           current.value += newVal
         }
         break
-      case '+':
-      case '-':
-      case '*':
-      case '/':
+      case KEYENUM.PLUS:
+      case KEYENUM.MINUS:
+      case KEYENUM.MULTIPLY:
+      case KEYENUM.DIVIDE:
         if (operator.value === '') {
           operator.value = newVal
           result.value = current.value
@@ -36,22 +34,22 @@ export const handleCalculatorInpt = (
           current.value = ''
         }
         break
-      case 'c':
-      case 'C':
+      case KEYENUM.CLEAR:
         current.value = ''
         result.value = ''
-        operator.value = ''
+        operator.value = KEYENUM.BLANK
         break
-      case 'Empty':
+      case KEYENUM.EMPTY:
         current.value = ''
         break
-      case 'BackSpace':
+      case KEYENUM.BACKSPACE:
         current.value = current.value.slice(0, -1)
         break
       case '=':
+      case KEYENUM.ENTER:
         current.value = calculate(result.value, operator.value, current.value)
         result.value = ''
-        operator.value = ''
+        operator.value = KEYENUM.BLANK
         break
       default:
         console.log('정상적인 입력을 해주세요.')
@@ -68,29 +66,29 @@ export const handleCalculatorInpt = (
  * @param precision 결과값의 소수점 자릿수 (기본값: 10)
  * @returns 계산 결과 (문자열) 또는 에러 메시지
  */
-export const calculate = (a: string, op: Operator, b: string, precision: number = 10): string => {
+export const calculate = (a: string, op: KEYENUM, b: string, precision: number = 10): string => {
   try {
     const num1 = new Decimal(a)
     const num2 = new Decimal(b)
     let result: Decimal
 
     switch (op) {
-      case '+':
+      case KEYENUM.PLUS:
         result = num1.plus(num2)
         break
-      case '-':
+      case KEYENUM.MINUS:
         result = num1.minus(num2)
         break
-      case '*':
+      case KEYENUM.MULTIPLY:
         result = num1.times(num2)
         break
-      case '/':
+      case KEYENUM.DIVIDE:
         if (num2.isZero()) {
           return calculatorErrorenum.DivisionByZero
         }
         result = num1.dividedBy(num2)
         break
-      case '**':
+      case KEYENUM.POW:
         result = num1.pow(num2)
         break
       default:
