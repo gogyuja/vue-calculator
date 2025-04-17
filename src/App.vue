@@ -45,24 +45,25 @@ const keyevtTrigger=(e:KeyboardEvent)=>{
     </div>
     <div class="container">
         <Btn :button="{label:KEYENUM.CLEAR, class:`item operator`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:KEYENUM.EMPTY, class:`item operator`}" @send-label="triggerCalculate"></Btn>
+        <Btn :button="{label:KEYENUM.ESCAPE, class:`item operator`}" @send-label="triggerCalculate"></Btn>
         <Btn :button="{label:KEYENUM.BACKSPACE, class:`item operator`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:`/`, class:`item operator`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:`1`, class:`item number`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:`2`, class:`item number`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:`3`, class:`item number`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:`*`, class:`item operator`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:`4`, class:`item number`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:`5`, class:`item number`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:`6`, class:`item number`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:`+`, class:`item operator`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:`7`, class:`item number`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:`8`, class:`item number`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:`9`, class:`item number`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:`-`, class:`item operator`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:`.`, class:`item number`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:`0`, class:`item number`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:`=`, class:`item operator`}" @send-label="triggerCalculate"></Btn>
+        <Btn :button="{label:KEYENUM.DIVIDE, class:`item operator`}" @send-label="triggerCalculate"></Btn>
+        <Btn :button="{label:KEYENUM.NUMBER_1, class:`item number`}" @send-label="triggerCalculate"></Btn>
+        <Btn :button="{label:KEYENUM.NUMBER_2, class:`item number`}" @send-label="triggerCalculate"></Btn>
+        <Btn :button="{label:KEYENUM.NUMBER_3, class:`item number`}" @send-label="triggerCalculate"></Btn>
+        <Btn :button="{label:KEYENUM.MULTIPLY, class:`item operator`}" @send-label="triggerCalculate"></Btn>
+        <Btn :button="{label:KEYENUM.NUMBER_4, class:`item number`}" @send-label="triggerCalculate"></Btn>
+        <Btn :button="{label:KEYENUM.NUMBER_5, class:`item number`}" @send-label="triggerCalculate"></Btn>
+        <Btn :button="{label:KEYENUM.NUMBER_6, class:`item number`}" @send-label="triggerCalculate"></Btn>
+        <Btn :button="{label:KEYENUM.PLUS, class:`item operator`}" @send-label="triggerCalculate"></Btn>
+        <Btn :button="{label:KEYENUM.NUMBER_7, class:`item number`}" @send-label="triggerCalculate"></Btn>
+        <Btn :button="{label:KEYENUM.NUMBER_8, class:`item number`}" @send-label="triggerCalculate"></Btn>
+        <Btn :button="{label:KEYENUM.NUMBER_9, class:`item number`}" @send-label="triggerCalculate"></Btn>
+        <Btn :button="{label:KEYENUM.MINUS, class:`item operator`}" @send-label="triggerCalculate"></Btn>
+        <Btn :button="{label:KEYENUM.FLAG_MINUS, class:`item operator`}" @send-label="triggerCalculate"></Btn>
+        <Btn :button="{label:KEYENUM.NUMBER_0, class:`item number`}" @send-label="triggerCalculate"></Btn>
+        <Btn :button="{label:KEYENUM.DOT, class:`item number`}" @send-label="triggerCalculate"></Btn>
+        <Btn :button="{label:KEYENUM.EQUAL, class:`item operator`}" @send-label="triggerCalculate"></Btn>
     </div>
 </body>
 </template>

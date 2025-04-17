@@ -3,6 +3,12 @@ import { Decimal } from 'decimal.js'
 import { calculatorErrorenum } from '@/Enums/errorenum'
 import { KEYENUM } from '@/Enums/keyenum'
 
+/**
+ * @param newVal : 막 처음 입력된값
+ * @param current : 현재 조합된 숫자
+ * @param result : 결과값
+ * @param operator : 현재 연산자
+ */
 export const handleCalculatorInpt = (
   newVal: string,
   current: { value: string },
@@ -16,6 +22,7 @@ export const handleCalculatorInpt = (
       case KEYENUM.DOT:
         if (!current.value.includes('.')) {
           current.value += newVal
+          current.value = current.value
         }
         break
       case KEYENUM.PLUS:
@@ -33,23 +40,31 @@ export const handleCalculatorInpt = (
           operator.value = newVal
           current.value = ''
         }
+
         break
       case KEYENUM.CLEAR:
         current.value = ''
         result.value = ''
         operator.value = KEYENUM.BLANK
         break
-      case KEYENUM.EMPTY:
+      case KEYENUM.ESCAPE:
         current.value = ''
         break
       case KEYENUM.BACKSPACE:
         current.value = current.value.slice(0, -1)
         break
-      case '=':
+      case KEYENUM.EQUAL:
       case KEYENUM.ENTER:
-        current.value = calculate(result.value, operator.value, current.value)
-        result.value = ''
-        operator.value = KEYENUM.BLANK
+        if (result.value != '' && operator.value != '' && current.value != '') {
+          current.value = calculate(result.value, operator.value, current.value)
+          result.value = ''
+          operator.value = KEYENUM.BLANK
+        }
+        break
+      case KEYENUM.FLAG_MINUS:
+        let temp = Number(current.value) * -1
+        current.value = String(temp)
+        current.value = String(temp.toLocaleString('ko-KR'))
         break
       default:
         console.log('정상적인 입력을 해주세요.')
@@ -99,8 +114,22 @@ export const calculate = (a: string, op: KEYENUM, b: string, precision: number =
     return result
       .toDecimalPlaces(precision, Decimal.ROUND_HALF_UP) // 반올림
       .toString()
-      .replace(/(\.\d*?[1-9])0+$|\.0+$/, '$1') // 불필요한 0 제거
+      .replace(/(\.\d*?[1-9])0+$|\.0+$/, '$1')
+    // 불필요한 0 제거
   } catch (error) {
     return calculatorErrorenum.InavlidInput
   }
+}
+
+export const formatDot = (param: string): string => {
+  if (param === '') return ''
+
+  let val = param.replace(/,/g, '').replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',')
+  return val
+}
+
+export const unformatDot = (param: string): string => {
+  if (param === '') return ''
+
+  return param.replace(/,/g, '')
 }

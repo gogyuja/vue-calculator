@@ -17,8 +17,9 @@ export enum KEYENUM {
   EQUAL = '=',
   CLEAR = 'C',
   BACKSPACE = 'BACKSPACE',
-  EMPTY = 'EMPTY',
+  ESCAPE = 'ESCAPE',
   ENTER = 'ENTER',
   BLANK = '',
   POW = '**',
+  FLAG_MINUS = '- / +',
 }
