@@ -13,17 +13,14 @@ const meta = {
   title: 'Result/Result',
   component: Result,
   tags: ['autodocs'],
-  argTypes: {
-  },
-  args: {
-  },
-
+  argTypes: {},
+  args: {},
 }
 
 export default meta
 
 //템플릿 생성
-const Template = (args) => ({
+const Template: StoryFn<typeof Result> = (args) => ({
   components: { Result },
   setup() {
     return { args }
@@ -33,6 +30,4 @@ const Template = (args) => ({
 
 //기본스토리
 export const Default = Template.bind({})
-Default.args = {
-
-}
+Default.args = {}

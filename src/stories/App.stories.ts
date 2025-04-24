@@ -9,7 +9,7 @@ import type { Meta, StoryFn, Preview } from '@storybook/vue3'
 //   tags: ['autodocs'],
 // } as Meta<typeof Btn>
 
-const meta = {
+const meta: Meta = {
   title: 'Components/App',
   component: App,
   tags: ['autodocs'],
@@ -22,7 +22,7 @@ const meta = {
 export default meta
 
 //템플릿 생성
-const Template = (args) => ({
+const Template = (args: any) => ({
   components: { App },
   setup() {
     return { args }
@@ -32,4 +32,3 @@ const Template = (args) => ({
 
 //기본스토리
 export const Default = Template.bind({})
-Default.args = {}

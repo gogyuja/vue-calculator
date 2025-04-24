@@ -1,6 +1,6 @@
 import { fn } from '@storybook/test'
 import Btn from '../components/Btn.vue'
-import type { Meta, StoryFn, Preview } from '@storybook/vue3'
+import type { Meta, StoryFn, Preview, StoryObj } from '@storybook/vue3'
 
 //스토리북 메타데이터 설정
 // export default {
@@ -9,7 +9,7 @@ import type { Meta, StoryFn, Preview } from '@storybook/vue3'
 //   tags: ['autodocs'],
 // } as Meta<typeof Btn>
 
-const meta = {
+const meta: Meta = {
   title: 'Components/Btn',
   component: Btn,
   tags: ['autodocs'],
@@ -17,10 +17,7 @@ const meta = {
     class: { control: 'select', options: ['number', 'operator'] },
     style: { control: 'select', options: ['width:10rem; height:5rem', 'width:5rem; height:5rem;'] },
   },
-  args: {
-    onClick: fn(),
-  },
-  
+  args: {},
 } satisfies Meta<typeof Btn>
 
 export default meta
@@ -35,33 +32,35 @@ const Template: StoryFn<typeof Btn> = (args) => ({
 })
 
 //기본스토리
-export const Default = Template.bind({})
-Default.args = {
-  button: {
-    class: 'number',
+// export const Default = Template.bind({})
+// Default.args = {
+//   label: '테스트버튼',
+//   style: { width: '200px', height: '100px' },
+//   class: 'operator',
+// }
+
+// 기존 Template 방식 대신 StoryObj 사용
+export const Default: StoryObj<typeof meta> = {
+  args: {
     label: '테스트버튼',
     style: { width: '200px', height: '100px' },
+    class: 'operator',
   },
 }
 
 export const Number = {
   args: {
     class: 'number',
-    button: {
-      label: '1',
-      class: 'number',
-      style: {
-        width: '10rem',
-      },
+    label: '1',
+    style: {
+      width: '300px',
     },
   },
 }
 
 export const Operater = {
   args: {
-    button: {
-      class: 'operator',
-      label: '+',
-    },
+    class: 'operator',
+    label: '+',
   },
 }

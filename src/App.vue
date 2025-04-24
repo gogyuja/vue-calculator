@@ -11,7 +11,7 @@ const resultVal=ref('');
 //입력창에 표시될 현재 값
 const curVal=ref('');
 //계산식 변수
-const operator=ref('');
+const operator=ref(KEYENUM.BLANK);
 
 const triggerCalculate=(newVal:string)=>{
   handleCalculatorInpt(newVal, curVal, resultVal, operator);
@@ -44,26 +44,26 @@ const keyevtTrigger=(e:KeyboardEvent)=>{
       <Result :curVal="curVal" :resultVal="resultVal" :operator="operator"/>
     </div>
     <div class="container">
-        <Btn :button="{label:KEYENUM.CLEAR, class:`item operator`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:KEYENUM.ESCAPE, class:`item operator`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:KEYENUM.BACKSPACE, class:`item operator`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:KEYENUM.DIVIDE, class:`item operator`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:KEYENUM.NUMBER_1, class:`item number`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:KEYENUM.NUMBER_2, class:`item number`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:KEYENUM.NUMBER_3, class:`item number`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:KEYENUM.MULTIPLY, class:`item operator`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:KEYENUM.NUMBER_4, class:`item number`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:KEYENUM.NUMBER_5, class:`item number`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:KEYENUM.NUMBER_6, class:`item number`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:KEYENUM.PLUS, class:`item operator`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:KEYENUM.NUMBER_7, class:`item number`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:KEYENUM.NUMBER_8, class:`item number`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:KEYENUM.NUMBER_9, class:`item number`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:KEYENUM.MINUS, class:`item operator`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:KEYENUM.FLAG_MINUS, class:`item operator`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:KEYENUM.NUMBER_0, class:`item number`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:KEYENUM.DOT, class:`item number`}" @send-label="triggerCalculate"></Btn>
-        <Btn :button="{label:KEYENUM.EQUAL, class:`item operator`}" @send-label="triggerCalculate"></Btn>
+        <Btn :class="`operator`" :label=KEYENUM.CLEAR  @send-label="triggerCalculate"></Btn>
+        <Btn :class="`operator`" :label=KEYENUM.ESCAPE @send-label="triggerCalculate"></Btn>
+        <Btn :class="`operator`" :label=KEYENUM.BACKSPACE  @send-label="triggerCalculate"></Btn>
+        <Btn :class="`operator`" :label=KEYENUM.DIVIDE @send-label="triggerCalculate"></Btn>
+        <Btn :class="`number`" :label=KEYENUM.NUMBER_1 @send-label="triggerCalculate"></Btn>
+        <Btn :class="`number`" :label=KEYENUM.NUMBER_2 @send-label="triggerCalculate"></Btn>
+        <Btn :class="`number`" :label=KEYENUM.NUMBER_3 @send-label="triggerCalculate"></Btn>
+        <Btn :class="`operator`" :label=KEYENUM.MULTIPLY @send-label="triggerCalculate"></Btn>
+        <Btn :class="`number`" :label=KEYENUM.NUMBER_4 @send-label="triggerCalculate"></Btn>
+        <Btn :class="`number`" :label=KEYENUM.NUMBER_5 @send-label="triggerCalculate"></Btn>
+        <Btn :class="`number`" :label=KEYENUM.NUMBER_6 @send-label="triggerCalculate"></Btn>
+        <Btn :class="`operator`" :label=KEYENUM.PLUS @send-label="triggerCalculate"></Btn>
+        <Btn :class="`number`" :label=KEYENUM.NUMBER_7 @send-label="triggerCalculate"></Btn>
+        <Btn :class="`number`" :label=KEYENUM.NUMBER_8 @send-label="triggerCalculate"></Btn>
+        <Btn :class="`number`" :label=KEYENUM.NUMBER_9 @send-label="triggerCalculate"></Btn>
+        <Btn :class="`operator`" :label=KEYENUM.MINUS @send-label="triggerCalculate"></Btn>
+        <Btn :class="`operator`" :label=KEYENUM.FLAG_MINUS @send-label="triggerCalculate"></Btn>
+        <Btn :class="`number`" :label=KEYENUM.NUMBER_0 @send-label="triggerCalculate"></Btn>
+        <Btn :class="`operator`" :label=KEYENUM.DOT @send-label="triggerCalculate"></Btn>
+        <Btn :class="`operator`" :label=KEYENUM.EQUAL @send-label="triggerCalculate"></Btn>
     </div>
 </body>
 </template>
